@@ -1,0 +1,7 @@
+.bg-img {
+  background-image: url("../../img/notFound.jpg");
+  background-size: cover;
+  background-repeat: none;
+  /* width: 200px; */
+  height: 100vh;
+}
