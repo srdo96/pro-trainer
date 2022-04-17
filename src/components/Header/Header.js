@@ -6,16 +6,16 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 
 const Header = () => {
-  const navigation = [
-    { name: "Services", href: "#", current: true },
-    { name: "Team", href: "#", current: false },
-    { name: "Projects", href: "#", current: false },
-    { name: "About", href: "#", current: false },
-  ];
+  // const navigation = [
+  //   { name: "Services", href: "#", current: true },
+  //   { name: "Team", href: "#", current: false },
+  //   { name: "Projects", href: "#", current: false },
+  //   { name: "About", href: "#", current: false },
+  // ];
 
-  function classNames(...classes) {
-    return classes.filter(Boolean).join(" ");
-  }
+  // function classNames(...classes) {
+  //   return classes.filter(Boolean).join(" ");
+  // }
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
@@ -41,8 +41,8 @@ const Header = () => {
                     src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                     alt="Workflow"
                   />{" "} */}
-                  <span className="text-2xl text-red-600">BE</span>
-                  <span className="text-2xl text-white">FIT</span>
+                  <span className="text-2xl text-red-600">Pro</span>
+                  <span className="text-2xl text-white">Trainer</span>
                   {/* <img
                     className="hidden lg:block h-8 w-auto"
                     src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
