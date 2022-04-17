@@ -1,7 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 
 const Signup = () => {
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const pass = e.target.pass.value;
+    const confirmPass = e.target.confirmPass.value;
+
+    if (pass !== confirmPass) return;
+
+    createUserWithEmailAndPassword(email, pass);
+  };
   return (
     <div className="relative min-h-screen flex flex-col sm:justify-center items-center bg-gray-100 ">
       <div className="relative sm:max-w-sm w-full">
@@ -14,7 +28,7 @@ const Signup = () => {
           >
             Registration
           </label>
-          <form className="mt-5">
+          <form onSubmit={handleSignUp} className="mt-5">
             <div>
               <input
                 type="text"
