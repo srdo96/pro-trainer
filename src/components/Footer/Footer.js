@@ -96,7 +96,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-col justify-between pt-5 pb-10 border-t border-deep-purple-accent-200 sm:flex-row">
           <p className="text-sm text-gray-100">
-            © Copyright 2020 Lorem Inc. All rights reserved.
+            &copy; Copyright 2020 Lorem Inc. All rights reserved.
           </p>
         </div>
       </div>

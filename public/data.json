@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "Complete Athlete Training",
+    "desc": "Originally designed for busy professional athletes who needed to stay in shape on the road, AX-1 revolutionized athletic, science-based training to allow regular people to get the same results as the pros – in their local gym or their living room.",
+    "img": "https://i.ibb.co/Nn5BWfJ/1.png",
+    "price": 90
+  },
+  {
+    "id": 2,
+    "title": "Fat Loss",
+    "desc": "This program puts the science of fast fat loss into every workout to quickly and safely turn your body into a fat burning machine. Step by step meal plans and the best fat burning workouts scaled for every ability level ensure zero guesswork and access to anyone wanting to get rid of unwanted body fat and keep it off forever!",
+    "img": "https://i.ibb.co/f99DsDQ/2.png",
+    "price": 70
+  },
+  {
+    "id": 3,
+    "title": "Bodyweight Training",
+    "desc": "In just 6 weeks turn your body into a muscle building, fat burning machine without ever stepping foot into a gym. No matter your current fitness abilities ATHLEAN XERO will help you improve the way you move, look and feel without ever needing a single piece of equipment.",
+    "img": "https://i.ibb.co/SNqvyTF/4.png",
+    "price": 80
+  },
+  {
+    "id": 4,
+    "title": "Advanced Bodyweight Training",
+    "desc": "XERO2 is a full 90 Day, Tri-Phase total body muscle building system that provides options based on what equipment you have access to:",
+    "img": "https://i.ibb.co/drJSx5z/3.png",
+    "price": 99
+  }
+]
