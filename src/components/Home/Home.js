@@ -21,9 +21,8 @@ const Home = () => {
             Strength Coach for the New York Mets and is now one of the world’s
             most trusted authorities on science based training and performance.
             The most accomplished musicians, actors, athletes, teams and well
-            over 11 million followers rely on his hands-on experience and
-            expertise to get them looking, feeling and moving like athletes via
-            his ATHLEAN-X™ brand training and supplements.
+            over 11 million followers rely on my hands-on experience and
+            expertise to get them looking, feeling and moving like athletes.
           </p>
         </div>
       </div>
