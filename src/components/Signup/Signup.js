@@ -5,7 +5,6 @@ import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { async } from "@firebase/util";
-import { sendEmailVerification } from "firebase/auth";
 import Loading from "../Loading/Loading";
 
 const Signup = () => {
@@ -29,7 +28,6 @@ const Signup = () => {
     }
     setUiError("");
     await createUserWithEmailAndPassword(email, pass);
-    // navigate("/home");
     console.log(user);
   };
   if (loading) {
@@ -39,8 +37,7 @@ const Signup = () => {
     navigate(from, { replace: true });
     toast("Registration complete");
   }
-  if (user) {
-  }
+
   return (
     <div className="relative min-h-screen flex flex-col sm:justify-center items-center bg-gray-100 ">
       <div className="relative sm:max-w-sm w-full">
