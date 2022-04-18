@@ -1,8 +1,8 @@
 import React from "react";
 
-const Card = ({ service }) => {
+const Card = ({ service, handleEnroll }) => {
   const { img, title, desc, price } = service;
-  console.log(service);
+  // console.log(service);
   return (
     <div>
       <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -22,6 +22,7 @@ const Card = ({ service }) => {
               ${price}
             </span>
             <button
+              onClick={() => handleEnroll(service)}
               href="#"
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >

@@ -9,19 +9,11 @@ import { signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 const Header = () => {
   const [user] = useAuthState(auth);
-  // const navigation = [
-  //   { name: "Services", href: "#", current: true },
-  //   { name: "Team", href: "#", current: false },
-  //   { name: "Projects", href: "#", current: false },
-  //   { name: "About", href: "#", current: false },
-  // ];
 
-  // function classNames(...classes) {
-  //   return classes.filter(Boolean).join(" ");
-  // }
   const logout = () => {
     signOut(auth);
   };
+  // console.log("user", user);
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -59,7 +51,7 @@ const Header = () => {
                       Services
                     </Link>
                     <Link
-                      to="/about"
+                      to="/cart"
                       className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                     >
                       Cart
@@ -81,12 +73,14 @@ const Header = () => {
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {user ? (
-                  <button
-                    onClick={logout}
-                    className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Logout
-                  </button>
+                  <div className="flex justify-center items-center text-white px-3 py-2 rounded-md text-sm font-medium">
+                    <button
+                      onClick={logout}
+                      className="bg-gray-900 ml-5 text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Logout
+                    </button>
+                  </div>
                 ) : (
                   <Link
                     to="/login"
