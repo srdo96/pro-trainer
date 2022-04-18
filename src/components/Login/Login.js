@@ -21,7 +21,7 @@ const Login = () => {
     const email = e.target.email.value;
     const pass = e.target.pass.value;
     console.log(email, pass);
-    // signInWithEmailAndPassword(email, pass);
+    signInWithEmailAndPassword(email, pass);
   };
 
   if (user || googleUser) {

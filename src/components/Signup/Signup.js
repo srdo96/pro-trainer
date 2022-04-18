@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { ToastContainer, toast } from "react-toastify";
@@ -13,6 +13,10 @@ const Signup = () => {
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [uiError, setUiError] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+
+  let from = location.state?.from?.pathname || "/home";
+
   const handleSignUp = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -32,7 +36,10 @@ const Signup = () => {
     return <Loading></Loading>;
   }
   if (user) {
+    navigate(from, { replace: true });
     toast("Registration complete");
+  }
+  if (user) {
   }
   return (
     <div className="relative min-h-screen flex flex-col sm:justify-center items-center bg-gray-100 ">
