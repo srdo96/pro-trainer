@@ -1,26 +1,10 @@
-import { data } from "autoprefixer";
 import React, { useEffect, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import Card from "../Card/Card";
 
 const Services = () => {
   const [services, setServices] = useState([]);
-  const [enrollList, setEnrollList] = useState([]);
 
-  const handleEnroll = (selectedItem) => {
-    let newCart = [];
-    const exists = enrollList.find((item) => item.id === selectedItem.id);
-    console.log(exists);
-    if (exists) {
-      toast(`${selectedItem.title} already added.`);
-    } else {
-      newCart = [...enrollList, selectedItem];
-      setEnrollList(newCart);
-    }
-    console.log("list: ", enrollList);
-  };
-
+  // data load
   useEffect(() => {
     fetch("data.json")
       .then((res) => res.json())
@@ -28,16 +12,13 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="bg-black">
-      <ToastContainer />
-      <h1>Services</h1>
+    <div id="services" className="bg-black">
+      <h1 className="text-red-600 text-center text-3xl pt-9 pb-5 font-bold">
+        Services
+      </h1>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
         {services.map((service) => (
-          <Card
-            key={service.id}
-            service={service}
-            handleEnroll={handleEnroll}
-          ></Card>
+          <Card key={service.id} service={service}></Card>
         ))}
       </div>
     </div>

@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
-import { Fragment } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import auth from "../../firebase.init";
@@ -10,12 +9,12 @@ import { useAuthState } from "react-firebase-hooks/auth";
 const Header = () => {
   const [user] = useAuthState(auth);
 
+  // logout
   const logout = () => {
     signOut(auth);
   };
-  // console.log("user", user);
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="bg-gray-800 sticky top-0">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -44,18 +43,22 @@ const Header = () => {
                     >
                       Home
                     </Link>
-                    <Link
+
+                    <HashLink
                       to="/home#services"
+                      smooth
                       className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                     >
                       Services
-                    </Link>
-                    <Link
-                      to="/cart"
+                    </HashLink>
+                    <HashLink
+                      to="/home#trainer"
+                      smooth
                       className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                     >
-                      Cart
-                    </Link>
+                      Trainer
+                    </HashLink>
+
                     <Link
                       to="/about"
                       className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
@@ -93,6 +96,7 @@ const Header = () => {
             </div>
           </div>
 
+          {/* panel for small device */}
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               <Link
@@ -101,17 +105,26 @@ const Header = () => {
               >
                 Home
               </Link>
-              <Link
-                to="/service"
+              <HashLink
+                to="/home#services"
+                smooth
                 className="bg-gray-900 text-white px-3 mx-2 py-2 rounded-md text-sm font-medium"
               >
                 Services
-              </Link>
+              </HashLink>
+              <HashLink
+                to="/home#trainer"
+                smooth
+                className="bg-gray-900 text-white px-3 mx-2 py-2 rounded-md text-sm font-medium"
+              >
+                Trainer
+              </HashLink>
+
               <Link
-                to="/about"
+                to="/blogs"
                 className="bg-gray-900 text-white mx-2 px-3 py-2 rounded-md text-sm font-medium"
               >
-                Cart
+                Blogs
               </Link>
               <Link
                 to="/about"

@@ -1,26 +1,48 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import {
+  useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import auth from "../../firebase.init";
 import Loading from "../Loading/Loading";
 
 const Login = () => {
+  const emailRef = useRef("");
+  const passwordRef = useRef("");
+
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
+  const [sendPasswordResetEmail, sending, passError] =
+    useSendPasswordResetEmail(auth);
+  // const [emailAddress, setEmailAddress] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
 
   let from = location.state?.from?.pathname || "/home";
+
+  const resetPass = async (e) => {
+    // console.log(emailAddress, "e");
+    const email = emailRef.current.value;
+    console.log(email);
+    await sendPasswordResetEmail(email);
+    if (sending) {
+      toast.success("email Sent");
+    }
+  };
+
+  console.log(sending);
+
+  // sign-in with email
   const handleLogin = async (e) => {
     e.preventDefault();
-    const email = e.target.email.value;
-    const pass = e.target.pass.value;
-    console.log(email, pass);
+    const email = emailRef.current.value;
+    const pass = passwordRef.current.value;
     signInWithEmailAndPassword(email, pass);
   };
 
@@ -42,18 +64,22 @@ const Login = () => {
           <form onSubmit={handleLogin} className="mt-5">
             <div className="mt-7">
               <input
+                ref={emailRef}
                 type="email"
                 placeholder="Email"
                 name="email"
+                required
                 className="pl-3 mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
               />
             </div>
 
             <div className="mt-7">
               <input
+                ref={passwordRef}
                 type="password"
                 placeholder="Password"
                 name="pass"
+                required
                 className="pl-3 mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
               />
             </div>
@@ -64,6 +90,12 @@ const Login = () => {
               </button>
             </div>
           </form>
+          <p>
+            Forget password?{" "}
+            <button onClick={resetPass} className="text-blue-600">
+              Reset
+            </button>
+          </p>
           <div className="flex mt-7 items-center text-center">
             <hr className="border-gray-300 border-1 w-full rounded-md" />
             <label className="block font-medium text-sm text-gray-600 w-full">
@@ -93,6 +125,7 @@ const Login = () => {
               >
                 <p className="text-base">Create new account.</p>
               </Link>
+              <ToastContainer />
             </div>
           </div>
         </div>

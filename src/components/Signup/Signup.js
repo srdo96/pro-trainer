@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
 import { async } from "@firebase/util";
 import Loading from "../Loading/Loading";
 
@@ -16,6 +15,7 @@ const Signup = () => {
 
   let from = location.state?.from?.pathname || "/home";
 
+  // Create User with email
   const handleSignUp = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -30,12 +30,12 @@ const Signup = () => {
     await createUserWithEmailAndPassword(email, pass);
     console.log(user);
   };
+
   if (loading) {
     return <Loading></Loading>;
   }
   if (user) {
     navigate(from, { replace: true });
-    toast("Registration complete");
   }
 
   return (
@@ -92,7 +92,6 @@ const Signup = () => {
             </div>
 
             <div className="mt-7">
-              {/* <p>{error}</p> */}
               <p className="text-red-600">{uiError}</p>
               {uiError ? (
                 <input
@@ -155,7 +154,6 @@ const Signup = () => {
           </form>
         </div>
       </div>
-      <ToastContainer />
     </div>
   );
 };

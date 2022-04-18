@@ -2,13 +2,13 @@ import React from "react";
 import me from "../../img/me1.png";
 const Intro = () => {
   return (
-    <div>
+    <div id="trainer">
       <div className="grid grid-cols-2 bg-black">
         <div>
           <img className="w-2/3 ml-24" src={me} alt="" />
         </div>
         <div className="mr-12">
-          <h1 className="text-xl mt-20 text-red-600  ">About Me</h1>
+          <h1 className="text-xl mt-20 text-red-600  ">Me: Your Trainer</h1>
           <h3 className="text-gray-400 border-l-2 pl-2 text-2xl">
             IF YOU WANNA LOOK LIKE ME <br />
             YOU'VE GOTTA TRAIN LIKE ME
