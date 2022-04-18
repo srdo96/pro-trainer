@@ -1,5 +1,8 @@
 import React from "react";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "../Loading/Loading";
@@ -7,6 +10,8 @@ import Loading from "../Loading/Loading";
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -16,13 +21,13 @@ const Login = () => {
     const email = e.target.email.value;
     const pass = e.target.pass.value;
     console.log(email, pass);
-    signInWithEmailAndPassword(email, pass);
+    // signInWithEmailAndPassword(email, pass);
   };
 
-  if (user) {
+  if (user || googleUser) {
     navigate(from, { replace: true });
   }
-  if (loading) {
+  if (loading || googleLoading) {
     <Loading></Loading>;
   }
   return (
@@ -58,37 +63,38 @@ const Login = () => {
                 Login
               </button>
             </div>
-
-            <div className="flex mt-7 items-center text-center">
-              <hr className="border-gray-300 border-1 w-full rounded-md" />
-              <label className="block font-medium text-sm text-gray-600 w-full">
-                or
-              </label>
-              <hr className="border-gray-300 border-1 w-full rounded-md" />
-            </div>
-
-            <div className="flex mt-7 justify-center w-full">
-              <button className="mr-5 bg-blue-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
-                Facebook
-              </button>
-
-              <button className="bg-red-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
-                Google
-              </button>
-            </div>
-
-            <div className="mt-7">
-              <div className="flex justify-center items-center">
-                <label className="mr-2">New to Travel Gure?</label>
-                <Link
-                  to="/signup"
-                  className=" text-blue-500 transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105"
-                >
-                  <p className="text-base">Create new account.</p>
-                </Link>
-              </div>
-            </div>
           </form>
+          <div className="flex mt-7 items-center text-center">
+            <hr className="border-gray-300 border-1 w-full rounded-md" />
+            <label className="block font-medium text-sm text-gray-600 w-full">
+              or
+            </label>
+            <hr className="border-gray-300 border-1 w-full rounded-md" />
+          </div>
+
+          {googleError && (
+            <p className="text-red-500 mt-3">{googleError.message}</p>
+          )}
+          <div className="flex mt-7 justify-center w-full">
+            <button
+              onClick={() => signInWithGoogle()}
+              className="bg-red-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105"
+            >
+              Google
+            </button>
+          </div>
+
+          <div className="mt-7">
+            <div className="flex justify-center items-center">
+              <label className="mr-2">New to Pro Trainer?</label>
+              <Link
+                to="/signup"
+                className=" text-blue-500 transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105"
+              >
+                <p className="text-base">Create new account.</p>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
