@@ -16,13 +16,14 @@ const Signup = () => {
     const pass = e.target.pass.value;
     const confirmPass = e.target.confirmPass.value;
 
-    // if (pass !== confirmPass) {
-    //   setUiError("Password does")
-    //   return;
-    // }
-
+    if (pass !== confirmPass) {
+      setUiError("Two passwords does not match,");
+      return;
+    }
+    setUiError("");
     await createUserWithEmailAndPassword(email, pass);
-    console.log(error);
+    toast("Registration complete");
+    console.log(user);
   };
   return (
     <div className="relative min-h-screen flex flex-col sm:justify-center items-center bg-gray-100 ">
@@ -58,7 +59,7 @@ const Signup = () => {
             </div>
 
             <div className="mt-7">
-              {true ? (
+              {uiError ? (
                 <input
                   type="password"
                   placeholder="Password"
@@ -79,8 +80,8 @@ const Signup = () => {
 
             <div className="mt-7">
               {/* <p>{error}</p> */}
-              <p className="text-red-600">uiError</p>
-              {true ? (
+              <p className="text-red-600">{uiError}</p>
+              {uiError ? (
                 <input
                   type="password"
                   placeholder="Confirm password"
@@ -120,7 +121,7 @@ const Signup = () => {
                   </svg>
                 </div>
               )}
-
+              {error && <p className="text-red-500">{error.message}</p>}
               <button
                 type="submit"
                 className="bg-blue-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105"
