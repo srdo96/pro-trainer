@@ -90,6 +90,12 @@ const Header = () => {
                     >
                       About
                     </Link>
+                    <Link
+                      to="/blogs"
+                      className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Blogs
+                    </Link>
                   </div>
                 </div>
               </div>
