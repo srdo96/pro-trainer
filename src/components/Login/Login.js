@@ -56,7 +56,7 @@ const Login = () => {
               <div className="flex justify-center items-center">
                 <label className="mr-2">New to Travel Gure?</label>
                 <Link
-                  to="/registration"
+                  to="/signup"
                   className=" text-blue-500 transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105"
                 >
                   <p className="text-base">Create new account.</p>
