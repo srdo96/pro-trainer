@@ -31,12 +31,10 @@ const Login = () => {
     const email = emailRef.current.value;
     console.log(email);
     await sendPasswordResetEmail(email);
-    if (sending) {
-      toast.success("email Sent");
-    }
   };
-
-  console.log(sending);
+  if (sending) {
+    toast.success("email Sent");
+  }
 
   // sign-in with email
   const handleLogin = async (e) => {
