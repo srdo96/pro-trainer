@@ -7,7 +7,7 @@ const Card = ({ service }) => {
   return (
     <div>
       <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-        <img className="rounded-t-lg w-min" src={img} alt="" />
+        <img className="rounded-t-lg w-full" src={img} alt="" />
 
         <div className="p-5">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

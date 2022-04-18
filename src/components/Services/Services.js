@@ -12,11 +12,11 @@ const Services = () => {
   }, []);
 
   return (
-    <div id="services" className="bg-black">
+    <div id="services" className="bg-black ">
       <h1 className="text-red-600 text-center text-3xl pt-9 pb-5 font-bold">
         Services
       </h1>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 justify-items-center">
         {services.map((service) => (
           <Card key={service.id} service={service}></Card>
         ))}
