@@ -3,7 +3,7 @@ import me from "../../img/me1.png";
 const Intro = () => {
   return (
     <div id="trainer">
-      <div className="grid grid-cols-2 bg-black">
+      <div className="grid md:grid-cols-2 sm:grid-cols-1 bg-black">
         <div>
           <img className="w-2/3 ml-24" src={me} alt="" />
         </div>

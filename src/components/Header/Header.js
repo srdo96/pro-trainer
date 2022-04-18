@@ -101,34 +101,34 @@ const Header = () => {
             <div className="px-2 pt-2 pb-3 space-y-1">
               <Link
                 to="/home"
-                className="bg-gray-900 text-white px-3 mx-2 py-2 rounded-md text-sm font-medium"
+                className="bg-gray-900 text-white mx-1 px-2  py-2 rounded-md text-sm font-medium"
               >
                 Home
               </Link>
               <HashLink
                 to="/home#services"
                 smooth
-                className="bg-gray-900 text-white px-3 mx-2 py-2 rounded-md text-sm font-medium"
+                className="bg-gray-900 text-white px-2 mx-1 py-2 rounded-md text-sm font-medium"
               >
                 Services
               </HashLink>
               <HashLink
                 to="/home#trainer"
                 smooth
-                className="bg-gray-900 text-white px-3 mx-2 py-2 rounded-md text-sm font-medium"
+                className="bg-gray-900 text-white px-2 mx-1 py-2 rounded-md text-sm font-medium"
               >
                 Trainer
               </HashLink>
 
               <Link
                 to="/blogs"
-                className="bg-gray-900 text-white mx-2 px-3 py-2 rounded-md text-sm font-medium"
+                className="bg-gray-900 text-white mx-1 px-2 py-2 rounded-md text-sm font-medium"
               >
                 Blogs
               </Link>
               <Link
                 to="/about"
-                className="bg-gray-900 text-white mx-2 px-3 py-2 rounded-md text-sm font-medium"
+                className="bg-gray-900 text-white mx-1 px-2 py-2 rounded-md text-sm font-medium"
               >
                 About
               </Link>
